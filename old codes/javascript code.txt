@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="novi.css">
+	<meta name="viewport" content="width=device-width, initial scale = 1" />
+	<link rel="stylesheet" type="text/css" href="w3-style.css">
+	<title>Test</title>
+</head>
+<body>
+	<div id="div1">
+		<div class="naslov">
+			<h1>Tko je postigao najvise golova u Ligi prvaka 2016/17?</h1>
+		</div>
+
+		<div class="gumbici">
+			<button type="button" class="button" name="pitanje1" value="Cristiano Ronaldo" onclick="myFunction(value)">Cristiano Ronaldo</button><br>
+			<button type="button" class="button" name="pitanje1" value="Messi" onclick="myFunction(value)">Messi</button><br>
+			<button type="button" class="button" name="pitanje1" value="Zlatan Ibrahimovic" onclick="myFunction(value)">Zlatan Ibrahimovic</button><br>
+			<button type="button" class="button" name="pitanje1" value="Robert Lewandowski" onclick="myFunction(value)">Robert Lewandowski</button>
+		</div>
+	</div>
+
+	<div id = "div2">
+		<div class="naslov">
+			<h1>Tko je osvojio Ligu prvaka u sezoni 2015/16?</h1>
+		</div>
+		
+		<div class="gumbici">
+			<button type="button" class="button" name="pitanje2" value="Bayern Munchen" onclick="myFunction2(value)">Bayern Munchen</button><br>
+			<button type="button" class="button" name="pitanje2" value="Manchester United" onclick="myFunction2(value)">Manchester United</button><br>
+			<button type="button" class="button" name="pitanje2" value="AC Milan" onclick="myFunction2(value)">AC Milan</button><br>
+			<button type="button" class="button" name="pitanje2" value="Real Madrid" onclick="myFunction2(value)">Real Madrid</button>
+		</div>
+	</div>
+
+	<div id = "div3">
+		<div class="naslov">
+			<h1>Koje je godine Ajax osvojio Ligu prvaka?</h1>
+		</div>
+
+		<div class="gumbici">
+			<button type="button" class="button" name="pitanje3" value="1972" onclick="myFunction3(value)">1972</button><br>
+			<button type="button" class="button" name="pitanje3" value="1971" onclick="myFunction3(value)">1971</button><br>
+			<button type="button" class="button" name="pitanje3" value="1970" onclick="myFunction3(value)">1970</button><br>
+			<button type="button" class="button" name="pitanje3" value="1969" onclick="myFunction3(value)">1969</button>
+		</div>
+	</div>
+
+	<div id = "div4">
+		<div class="naslov">
+			<h1>Tko je osvojio La Ligu u sezoni 2015/16??</h1>
+		</div>
+
+		<div class="gumbici">
+			<button type="button" class="button" name="pitanje4" value="Real Madrid" onclick="myFunction4(value)">Real Madrid</button><br>
+			<button type="button" class="button" name="pitanje4" value="Atletico Madrid" onclick="myFunction4(value)">Atletico Madrid</button><br>
+			<button type="button" class="button" name="pitanje4" value="Barcelona" onclick="myFunction4(value)">Barcelona</button><br>
+			<button type="button" class="button" name="pitanje4" value="Valencia" onclick="myFunction4(value)">Valencia</button>
+		</div>
+	<!--<button type="button" name="konacni" value="konacno" onclick="Ispis()">Rezultat</button>-->
+	</div>
+</div>
+
+
+	<!--<p id = "demo"></p>-->
+
+<script>
+	var nizOdgovora = ["","","",""];
+	var nizTocnihOdgovora = ["Cristiano Ronaldo","Real Madrid","1971","Barcelona"];
+	var i = 0;
+	var bodovi = 0;
+
+
+	function myFunction(vrijednost) {
+		//window.alert("Kliknuta je vrijednost: "+vrijednost);
+		nizOdgovora[i] = vrijednost;
+		i++;
+		document.getElementById('div1').style.display = "none";
+		document.getElementById('div2').style.display = "block";
+	}
+
+	function myFunction2(vrijednost) {
+		//window.alert("Kliknuta je vrijednost: "+vrijednost);
+		nizOdgovora[i] = vrijednost;
+		i++;
+		document.getElementById('div2').style.display = "none";
+		document.getElementById('div3').style.display = "block";
+	}
+
+	function myFunction3(vrijednost) {
+		//window.alert("Kliknuta je vrijednost: "+vrijednost);
+		nizOdgovora[i] = vrijednost;
+		i++;
+		document.getElementById('div3').style.display = "none";
+		document.getElementById('div4').style.display = "block";
+	}
+
+	function myFunction4(vrijednost) {
+		//window.alert("Kliknuta je vrijednost: "+vrijednost);
+		nizOdgovora[i] = vrijednost;
+		i++;
+		for(i=0;i<4;i++){
+			if(nizOdgovora[i]==nizTocnihOdgovora[i])
+				bodovi += 25;
+		}
+		window.alert("Ukupno bodova: " + bodovi);
+		//document.getElementById("demo").innerHTML = "Ukupno bodova: " + bodovi;
+		location.reload();
+	}
+
+	function Ispis(){
+		for(i=0;i<4;i++){
+			if(nizOdgovora[i]==nizTocnihOdgovora[i])
+				bodovi += 25;
+		}
+
+		document.getElementById("demo").innerHTML = "Ukupno bodova: " + bodovi;
+	}
+
+</script>
+
+</body>
+</html>
