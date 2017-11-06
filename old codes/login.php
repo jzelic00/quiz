@@ -18,15 +18,16 @@
 				WHERE `Username` = '$username'
 				AND `Password` = '$password'
 			");
-			$brojac = mysqli_num_rows($korisnik);
-			if($brojac == 0)
+			//$brojac = mysqli_num_rows($korisnik);
+			//if($brojac == 0)
+			if(!$red = mysqli_fetch_assoc($korisnik))
 			{
 				echo '<div id="errorBox">Pogrešno ste unijeli korisničko ime ili lozinku!</div>';
 			}
 			else
 			{
 				//upijesna prijava
-				$_SESSION['login_username'] = $username;
+				$_SESSION['ID'] = $red['ID'];
 				header("Location:index.php");
 			}
 		}
@@ -38,9 +39,9 @@
 
 ?>
 
-<form method="POST" action="index.php?actio=login">
+<form method="POST" action="index.php?action=login">
 	<div id="login_box">
-		<div id="login_box_input">
+		<div class="login_box_input">
 			<div id="login_box_naslov">Prijava</div>
 			<div id="op">
 				<span>Korisničko ime</span><br>
@@ -50,9 +51,9 @@
 				<span>Lozinka</span><br>
 				<input id="login_input" type="password" name="login_password">
 			</div>
-			<div id="naZnamPassword"><a href="index.php?action=forget_password">Zaboravljena lozinka?</a></div>
+			<div id="zaboravljenaLozinka"><a href="forget_password.php">Zaboravljena lozinka?</a></div>
 		</div>
-		<button id="login_box_button" type="submit" name="login_submit">
+		<button class="login_box_button" type="submit" name="login_submit">
 				<i class="fa fa-sign-in fa-4x" aria-hidden="true"></i><br>
 				<span>Prijava</span>
 		</button>		
